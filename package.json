@@ -1,0 +1,14 @@
+{
+  "name": "tali-talent-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest"
+  }
+}
