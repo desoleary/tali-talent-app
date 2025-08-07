@@ -1,0 +1,42 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "private": true,
+  "description": "NestJS API for Tali Talent Analytics Platform",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main.js",
+    "build": "tsc -p tsconfig.build.json",
+    "generate": "nest generate",
+    "lint": "nest lint",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:create": "./scripts/migration-create.sh",
+    "migration:run": "pnpm typeorm migration:run -d ./data-source.ts",
+    "migration:generate": "pnpm typeorm migration:generate -d ./data-source.ts -n",
+    "migration:revert": "pnpm typeorm migration:revert -d ./data-source.ts",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.5",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.5",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/platform-express": "^11.1.5",
+    "@nestjs/typeorm": "^11.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "mysql2": "^3.14.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.25"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "@types/node": "^24.2.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "vitest": "^3.2.4"
+  }
+}
