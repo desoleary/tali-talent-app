@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'companies' })
 export class Company {
-    @PrimaryGeneratedColumn('increment') // auto-increment integer ID
-    id!: number;
+    @PrimaryGeneratedColumn('uuid')
+    uuid!: string;
 
     @Column('varchar', { length: 255 })
     name!: string;
@@ -11,18 +11,15 @@ export class Company {
     @Column('varchar', { length: 100, nullable: true })
     industry?: string;
 
-    @Column('varchar', { length: 255, nullable: true })
+    @Column('varchar', { length: 2048, nullable: true })
     website?: string;
 
     @Column('text', { nullable: true })
     notes?: string;
 
-    @Column('timestamp', { default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn({ name: 'created_at', type: 'datetime' })
     createdAt!: Date;
 
-    @Column('timestamp', {
-        default: () => 'CURRENT_TIMESTAMP',
-        onUpdate: 'CURRENT_TIMESTAMP',
-    })
+    @UpdateDateColumn({ name: 'updated_at', type: 'datetime' })
     updatedAt!: Date;
 }

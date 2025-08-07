@@ -8,10 +8,10 @@
     "dev": "turbo dev",
     "test": "turbo test",
     "test:ci": "turbo run test:ci",
-    "migration:create": "pnpm --filter api typeorm migration:create src/migrations/InitMigration -d ./data-source.ts",
-    "migration:run": "pnpm --filter api typeorm migration:run -d ./data-source.ts",
-    "migration:generate": "pnpm --filter api typeorm migration:generate -d ./data-source.ts -n",
-    "migration:revert": "pnpm --filter api typeorm migration:revert -d ./data-source.ts"
+    "migration:create": "pnpm --filter api typeorm migration:create src/migrations/InitMigration -d src/data-source.ts",
+    "migration:run": "pnpm --filter api typeorm migration:run -d src/data-source.ts",
+    "migration:generate": "pnpm --filter api typeorm migration:generate -d src/data-source.ts -n",
+    "migration:revert": "pnpm --filter api typeorm migration:revert -d src/data-source.ts"
   },
   "dependencies": {
     "@nestjs/typeorm": "^11.0.0",
